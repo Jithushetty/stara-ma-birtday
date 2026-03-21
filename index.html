@@ -6,80 +6,83 @@
 
 <style>
 body{
-    margin: 0;
-    height: 100vh;
-    overflow: hidden;
-    background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
+    margin:0;
+    height:100vh;
+    overflow:hidden;
     font-family: 'Segoe UI', sans-serif;
-    color: white;
-    text-align: center;
+    color:white;
+    text-align:center;
+
+    /* 🔥 animated background */
+    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #ff4d6d);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
 }
 
-/* CENTER CONTENT */
+@keyframes gradientMove {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+}
+
 .container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
 }
 
-/* TITLE */
+/* ⚡ neon title */
 h1{
-    font-size: 50px;
-    animation: glow 2s ease-in-out infinite alternate;
+    font-size:55px;
+    text-shadow: 0 0 10px #fff, 0 0 30px #ff4d6d, 0 0 60px #ff4d6d;
+    animation: pulse 2s infinite;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 10px #fff; }
-    to { text-shadow: 0 0 25px #ff4d6d, 0 0 40px #ff4d6d; }
+@keyframes pulse{
+    0% {transform: scale(1);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1);}
 }
 
-/* MESSAGE */
 #message{
-    font-size: 22px;
-    margin-top: 20px;
-    max-width: 600px;
-    margin-inline: auto;
-    animation: fadeIn 4s ease-in-out;
-    line-height: 1.6;
+    font-size:22px;
+    margin-top:20px;
+    max-width:600px;
+    line-height:1.6;
 }
 
-/* BUTTON */
+/* 🎵 button */
 button{
-    margin-top: 30px;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 30px;
-    background: #fff;
-    color:#ff4d6d;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 0 15px rgba(255,255,255,0.6);
-    transition: 0.3s;
+    margin-top:30px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 0 20px #ff4d6d;
 }
 
-button:hover{
-    transform: scale(1.1);
-}
-
-/* HEARTS */
+/* 💖 hearts */
 .hearts {
     position: fixed;
     top: -10px;
-    animation: fall linear forwards;
+    animation: floatDown linear forwards;
+    filter: drop-shadow(0 0 10px red);
 }
 
-@keyframes fall {
+@keyframes floatDown {
     to {
-        transform: translateY(100vh);
+        transform: translateY(110vh) translateX(50px);
         opacity: 0;
     }
 }
 
-/* FIREWORK PARTICLES */
+/* 🎆 fireworks */
 .firework {
     position: fixed;
-    pointer-events: none;
 }
 
 .particle {
@@ -101,9 +104,19 @@ button:hover{
     }
 }
 
-@keyframes fadeIn {
-    from {opacity:0}
-    to {opacity:1}
+/* ✨ sparkles */
+.spark {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+    0%,100%{opacity:0;}
+    50%{opacity:1;}
 }
 </style>
 </head>
@@ -111,23 +124,27 @@ button:hover{
 <body>
 
 <div class="container">
-    <h1>🎉 Happy Birthday Stara Ma 🎉</h1>
+    <h1> ❤️ ಎಂದಿಗೂ ನೀನು ಇರು ಹಾಯಾಗಿ, ಅದಕ್ಕೆ ನಾನು ಇರುವೆ ಜೊತೆಯಾಗಿ.... ❤️</h1>
 
     <div id="message">
-        You are the light that brightens every soul you touch.  
-        Your existence is pure magic, something words can never fully capture.  
-        I’m truly grateful to the universe for bringing you into this world.  
-        💖 Stay beautiful, stay magical… forever. 💖
+         ❤️ ಪ್ರತೀ ವರ್ಷ ನಿನ್ನ ಹರುಷ ನನಗೆ ಸಂತೋಷ, ನಿನ್ನ ಜನನ ಆಗಿದೆ ಮಾದರಿ ಈ ಭೂಮಿಗೆ ❤️  
+        😊 ನಗುತ್ತಾ ಇರು ನಗುತ್ತಾ ಇರು ಓ ನಲ್ಲೆ... ಚಂದಿರನ ಬೆಳಕು ತರಲಿ ನಿನ್ನ ಮೊಗದ ಮೇಲೆ 😊 
+        🎉 Happy Birthday Stara Ma 💖🤗🎂
     </div>
 
-    <button onclick="playMusic()">💖 Tap Me 💖</button>
+    <button onclick="playMusic()">🎵 Start Vibe</button>
 </div>
 
 <audio id="bg-music" src="flute.mp3"></audio>
 
 <script>
 
-/* ❤️ HEARTS */
+/* 🎵 music */
+function playMusic(){
+    document.getElementById("bg-music").play();
+}
+
+/* 💖 hearts */
 function createHearts(){
     const heart = document.createElement("div");
     heart.className = "hearts";
@@ -139,7 +156,7 @@ function createHearts(){
     setTimeout(() => heart.remove(), 6000);
 }
 
-/* 🎆 REAL FIREWORK */
+/* 🎆 strong fireworks */
 function createFirework() {
     const firework = document.createElement("div");
     firework.className = "firework";
@@ -149,17 +166,17 @@ function createFirework() {
 
     document.body.appendChild(firework);
 
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 30; i++) {
         const particle = document.createElement("div");
         particle.className = "particle";
 
         const angle = Math.random() * 2 * Math.PI;
-        const distance = Math.random() * 80 + 40;
+        const distance = Math.random() * 100 + 50;
 
         particle.style.setProperty("--x", Math.cos(angle) * distance + "px");
         particle.style.setProperty("--y", Math.sin(angle) * distance + "px");
 
-        particle.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+        particle.style.background = `hsl(${Math.random()*360},100%,60%)`;
 
         firework.appendChild(particle);
     }
@@ -167,14 +184,20 @@ function createFirework() {
     setTimeout(() => firework.remove(), 1000);
 }
 
-/* 🎵 MUSIC */
-function playMusic(){
-    document.getElementById("bg-music").play();
+/* 🌟 sparkles */
+function createSpark(){
+    const s = document.createElement("div");
+    s.className = "spark";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.top = Math.random() * 100 + "vh";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),2000);
 }
 
 /* LOOP */
-setInterval(createHearts, 400);
-setInterval(createFirework, 1200);
+setInterval(createHearts, 300);
+setInterval(createFirework, 700);
+setInterval(createSpark, 200);
 
 </script>
 
