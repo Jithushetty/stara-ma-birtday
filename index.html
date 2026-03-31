@@ -112,7 +112,7 @@ button:hover{
 
 <div class="container"> 
     <div style="display:inline-block; padding:10px; border:1px solid #ddd; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-  <img src="imga.jpg" alt="My Photo" width="300">
+  <img src="jithu.jpg" alt="My Photo" width="300">
 </div>
 
     <div id="message">
@@ -120,61 +120,61 @@ button:hover{
         
     </div>
 
-    <button onclick="playMusic()">💖 Tap Me 💖</button>
+    <!-- <button onclick="playMusic()">💖 Tap Me 💖</button> -->
 </div>
 
 <audio id="bg-music" src="flute.mp3"></audio>
 
 <script>
 
-/* ❤️ HEARTS */
-function createHearts(){
-    const heart = document.createElement("div");
-    heart.className = "hearts";
-    heart.innerText = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (Math.random() * 20 +10) + "px";
-    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-}
+// /* ❤️ HEARTS */
+// function createHearts(){
+//     const heart = document.createElement("div");
+//     heart.className = "hearts";
+//     heart.innerText = "❤️";
+//     heart.style.left = Math.random() * 100 + "vw";
+//     heart.style.fontSize = (Math.random() * 20 +10) + "px";
+//     heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+//     document.body.appendChild(heart);
+//     setTimeout(() => heart.remove(), 6000);
+// }
 
-/* 🎆 REAL FIREWORK */
-function createFirework() {
-    const firework = document.createElement("div");
-    firework.className = "firework";
+// /* 🎆 REAL FIREWORK */
+// function createFirework() {
+//     const firework = document.createElement("div");
+//     firework.className = "firework";
 
-    firework.style.left = Math.random() * window.innerWidth + "px";
-    firework.style.top = Math.random() * window.innerHeight + "px";
+//     firework.style.left = Math.random() * window.innerWidth + "px";
+//     firework.style.top = Math.random() * window.innerHeight + "px";
 
-    document.body.appendChild(firework);
+//     document.body.appendChild(firework);
 
-    for (let i = 0; i < 25; i++) {
-        const particle = document.createElement("div");
-        particle.className = "particle";
+//     for (let i = 0; i < 25; i++) {
+//         const particle = document.createElement("div");
+//         particle.className = "particle";
 
-        const angle = Math.random() * 2 * Math.PI;
-        const distance = Math.random() * 80 + 40;
+//         const angle = Math.random() * 2 * Math.PI;
+//         const distance = Math.random() * 80 + 40;
 
-        particle.style.setProperty("--x", Math.cos(angle) * distance + "px");
-        particle.style.setProperty("--y", Math.sin(angle) * distance + "px");
+//         particle.style.setProperty("--x", Math.cos(angle) * distance + "px");
+//         particle.style.setProperty("--y", Math.sin(angle) * distance + "px");
 
-        particle.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+//         particle.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
 
-        firework.appendChild(particle);
-    }
+//         firework.appendChild(particle);
+//     }
 
-    setTimeout(() => firework.remove(), 1000);
-}
+//     setTimeout(() => firework.remove(), 1000);
+// }
 
-/* 🎵 MUSIC */
-function playMusic(){
-    document.getElementById("bg-music").play();
-}
+// /* 🎵 MUSIC */
+// function playMusic(){
+//     document.getElementById("bg-music").play();
+// }
 
-/* LOOP */
-setInterval(createHearts, 400);
-setInterval(createFirework, 1200);
+// /* LOOP */
+// setInterval(createHearts, 400);
+// setInterval(createFirework, 1200);
 
 </script>
 
